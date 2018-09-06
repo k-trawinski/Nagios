@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -12,7 +13,8 @@ import { MenuComponent } from './menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    MenuModule
+    BrowserAnimationsModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

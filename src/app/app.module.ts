@@ -3,10 +3,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { MonitorComponent } from './monitor/monitor.component';
+
+import { ApiService } from './core/services/api.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,10 @@ import { MonitorComponent } from './monitor/monitor.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MenubarModule
+    MenubarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

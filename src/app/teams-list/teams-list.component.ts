@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../core/services/api.service';
 
 @Component({
   selector: 'app-teams-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamsListComponent implements OnInit {
 
-  constructor() { }
+  public teams = [];
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getTeams().subscribe(
+      data => this.teams = data);
   }
 
 }

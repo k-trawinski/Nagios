@@ -1,0 +1,21 @@
+{
+    "teams": [
+        { "id": 1, "name": "Administracja", "description": "Administracja" },
+        { "id": 2, "name": "Fakturowanie", "description": "Fakturowanie" },
+        { "id": 3, "name": "Finanse", "description": "Finanse" },
+        { "id": 4, "name": "Obsluga Techniczna", "description": "Obsluga Techniczna" },
+        { "id": 5, "name": "Rozliczenia", "description": "Rozliczenia" },
+        { "id": 6, "name": "Sprawozdawczosc", "description": "Sprawozdawczosc" }
+    ],
+
+    "nagiosServices": [
+        { "id": 1, "name": "Administracja test1", "url": "", "description": "" },
+        { "id": 2, "name": "Fakturowanie test1", "url": "", "description": "" },
+        { "id": 3, "name": "Finanse test1", "url": "", "description": "" },
+        { "id": 4, "name": "Obsługa techniczna test1", "url": "", "description": "" },
+        { "id": 5, "name": "Rozliczenia test1", "url": "", "description": "" },
+        { "id": 6, "name": "Sprawozdawczość test1", "url": "", "description": "" }
+    ]
+
+
+}

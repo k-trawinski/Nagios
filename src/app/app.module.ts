@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
+import {ButtonModule} from 'primeng/button';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -23,6 +24,7 @@ import { ApiService } from './core/services/api.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule,
+    ButtonModule,
     HttpClientModule
   ],
   providers: [ApiService],

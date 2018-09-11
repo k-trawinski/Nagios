@@ -29,6 +29,11 @@ export class ApiService {
     return this.http.post<Team>(this.baseUrl + 'teams', team, this.httpOptions);
   }
 
+  updateTeam(team: Team): Observable<Team> {
+    console.log(team);
+    return this.http.put<Team>(this.baseUrl + 'teams', team, this.httpOptions);
+  }
+
 
   // Nagios services
 

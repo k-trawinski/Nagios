@@ -11,7 +11,8 @@ import {InputTextModule} from 'primeng/inputtext';
 })
 export class TeamsListComponent implements OnInit {
 
-  public teams: Team[] = [];
+  teams: Team[] = [];
+  //cols: any[];
 
   constructor(private apiService: ApiService) { }
 
@@ -33,7 +34,19 @@ export class TeamsListComponent implements OnInit {
     }
 
     this.apiService.addTeam(team).subscribe(
-       data => this.teams.push(data));
+       data => this.teams.push(data)
+    );
+  }
 
+  updateTeam(team: Team) {
+
+    this.apiService.updateTeam(team).subscribe(
+      let idx = this.teams.findIndex(t => t.id === team.id);
+    )
+  }
+
+  onEditComplete(event)
+  {
+    console.log('onEditcomplete: ' + JSON.stringify(event));
   }
 }

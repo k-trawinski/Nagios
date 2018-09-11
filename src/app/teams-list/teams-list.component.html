@@ -1,8 +1,36 @@
 <h2>Teams</h2>
-<ul *ngFor="let team of teams">
+<!-- <ul *ngFor="let team of teams">
   <li>{{team.name}}</li>
-</ul>  
-<input #newTeam type="text" pInputText placeholder="Team name"/> &nbsp;
+</ul>   -->
+<input #newTeam type="text" pInputText placeholder="Nazwa zespołu"/> &nbsp;
 <button type="button" pButton label="Add1" (click)="addTeam(newTeam.value)"></button> &nbsp; 
 <!-- <p-button label="Add2" (onClick)="addTeam(newTeam.value)"></p-button> -->
+<br><br>
+<p-table [value]="teams" (onEditComplete)="onEditComplete($event)">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Opis</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-team>
+    <tr>
+      <td>{{ team.id }}</td>
+      <td pEditableColumn> 
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input type="text" [(ngModel)]="team.name" required>
+          </ng-template>
+          <ng-template pTemplate="output">
+              {{ team.name }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td>{{ team.description }}</td>
+    </tr>
+  </ng-template>
+
+  
+</p-table>
 

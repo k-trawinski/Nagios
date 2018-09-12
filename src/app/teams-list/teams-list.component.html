@@ -17,17 +17,27 @@
   <ng-template pTemplate="body" let-team>
     <tr>
       <td>{{ team.id }}</td>
-      <td pEditableColumn> 
+      <td [pEditableColumn]="team" [pEditableColumnField]="'name'" > 
         <p-cellEditor>
           <ng-template pTemplate="input">
             <input type="text" [(ngModel)]="team.name" required>
+            <!-- <input (blur)="updateTeam({data: team})"> -->
           </ng-template>
           <ng-template pTemplate="output">
               {{ team.name }}
           </ng-template>
         </p-cellEditor>
       </td>
-      <td>{{ team.description }}</td>
+      <td [pEditableColumn]="team" [pEditableColumnField]="'description'" >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input type="text" [(ngModel)]="team.description">
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ team.description }}
+          </ng-template>
+      </p-cellEditor>
+      </td>
     </tr>
   </ng-template>
 

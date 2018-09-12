@@ -25,13 +25,13 @@ export class ApiService {
   }
 
   addTeam(team: Team): Observable<Team> {
-    console.log(team);
+    //console.log(team);
     return this.http.post<Team>(this.baseUrl + 'teams', team, this.httpOptions);
   }
 
   updateTeam(team: Team): Observable<Team> {
-    console.log(team);
-    return this.http.put<Team>(this.baseUrl + 'teams', team, this.httpOptions);
+    //console.log(team);
+    return this.http.put<Team>(this.baseUrl + 'teams/' + team.id, team, this.httpOptions);
   }
 
 

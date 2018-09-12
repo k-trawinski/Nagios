@@ -41,12 +41,16 @@ export class TeamsListComponent implements OnInit {
   updateTeam(team: Team) {
 
     this.apiService.updateTeam(team).subscribe(
-      let idx = this.teams.findIndex(t => t.id === team.id);
+      data => {
+        let idx = this.teams.findIndex(t => t.id == data.id);
+        this.teams[idx] = data;
+      }
     )
   }
 
   onEditComplete(event)
   {
-    console.log('onEditcomplete: ' + JSON.stringify(event));
+    //console.log('onEditcomplete: ' + JSON.stringify(event));
+    this.updateTeam(event.data);
   }
 }

@@ -21,7 +21,7 @@ export class TeamsListComponent implements OnInit {
       data => this.teams = data);
   }
 
-  addTeam(teamName: string) {
+  addTeam(teamName: string, teamDesc: string) {
     //console.log(teamName);
 
     const maxId = Math.max.apply(Math, this.teams.map(function(t) { return t.id; }))
@@ -30,8 +30,8 @@ export class TeamsListComponent implements OnInit {
     const team: Team = {
       id: maxId + 1,
       name: teamName,
-      description: teamName
-    }
+      description: teamDesc
+    };
 
     this.apiService.addTeam(team).subscribe(
        data => this.teams.push(data)

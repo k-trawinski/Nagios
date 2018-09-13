@@ -2,8 +2,9 @@
 <!-- <ul *ngFor="let team of teams">
   <li>{{team.name}}</li>
 </ul>   -->
-<input #newTeam type="text" pInputText placeholder="Nazwa zespołu"/> &nbsp;
-<button type="button" pButton label="Add1" (click)="addTeam(newTeam.value)"></button> &nbsp; 
+<input #newTeamName type="text" pInputText placeholder="Nazwa zespołu"/> &nbsp;
+<input #newTeamDesc type="text" pInputText placeholder="Opis"/> &nbsp;
+<button type="button" pButton label="Dodaj" (click)="addTeam(newTeamName.value, newTeamDesc.value)"></button> &nbsp; 
 <!-- <p-button label="Add2" (onClick)="addTeam(newTeam.value)"></p-button> -->
 <br><br>
 <p-table [value]="teams" (onEditComplete)="onEditComplete($event)">

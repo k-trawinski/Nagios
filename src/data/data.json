@@ -3,42 +3,47 @@
     {
       "id": 1,
       "name": "Administracja",
-      "description": "Administracja"
+      "description": "Administracja info"
     },
     {
       "id": 2,
       "name": "Fakturowanie",
-      "description": "Fakturowanie"
+      "description": "Fakturowanie info"
     },
     {
       "id": 3,
       "name": "Finanse",
-      "description": "Finanse"
+      "description": "Finanse info"
     },
     {
       "id": 4,
       "name": "Obsluga Techniczna",
-      "description": "Obsluga Techniczna"
+      "description": "Obsluga Techniczna info"
     },
     {
       "id": 5,
       "name": "Rozliczenia",
-      "description": "Rozliczenia"
+      "description": "Rozliczenia info"
     },
     {
       "id": 6,
       "name": "Sprawozdawczosc",
-      "description": "Sprawozdawczosc"
+      "description": "Sprawozdawczość info"
     },
     {
       "id": 9,
       "name": "aaa",
-      "description": "aaa"
+      "description": "aaa info"
     },
     {
       "id": 10,
       "name": "bbb",
-      "description": "bbb"
+      "description": "bbb info"
+    },
+    {
+      "id": 11,
+      "name": "ccc",
+      "description": "ccc info"
     }
   ],
   "nagiosServices": [

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '../../../../node_modules/@angular/common/http';
-import { Observable } from '../../../../node_modules/rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Team } from '../../shared/models/team.model';
 import { NagiosService } from '../../shared/models/nagiosService.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,17 @@ export class ApiService {
   // Nagios services
 
   getNagiosServices(): Observable<NagiosService[]> {
-    return this.http.get<NagiosService[]>('http://localhost:3000/nagiosServices');
+    return this.http.get<NagiosService[]>(this.baseUrl + 'nagiosServices');
   }
+
+  addNagiosService(nagiosService: NagiosService): Observable<NagiosService> {
+    console.log(nagiosService);
+    return this.http.post<NagiosService>(this.baseUrl + 'nagiosServices', nagiosService, this.httpOptions);
+  }
+
+  updateNagiosService(nagiosService: NagiosService): Observable<NagiosService> {
+    console.log(nagiosService);
+    return this.http.put<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosService.id, nagiosService, this.httpOptions);
+  }
+
 }

@@ -12,7 +12,6 @@ import {InputTextModule} from 'primeng/inputtext';
 export class TeamsListComponent implements OnInit {
 
   teams: Team[] = [];
-  //cols: any[];
 
   constructor(private apiService: ApiService) { }
 
@@ -22,10 +21,8 @@ export class TeamsListComponent implements OnInit {
   }
 
   addTeam(teamName: string, teamDesc: string) {
-    //console.log(teamName);
 
-    const maxId = Math.max.apply(Math, this.teams.map(function(t) { return t.id; }))
-
+    const maxId = Math.max.apply(Math, this.teams.map(function(t) { return t.id; }));
 
     const team: Team = {
       id: maxId + 1,
@@ -45,7 +42,7 @@ export class TeamsListComponent implements OnInit {
         let idx = this.teams.findIndex(t => t.id == data.id);
         this.teams[idx] = data;
       }
-    )
+    );
   }
 
   onEditComplete(event)

@@ -49,9 +49,10 @@
   "nagiosServices": [
     {
       "id": 1,
-      "name": "Administracja test1",
-      "url": "",
-      "description": ""
+      "name": "Administracja test DB",
+      "url": "http://localhost:3000/nagiosServices",
+      "description": "analiza indeksów bazodanowych",
+      "desription": "test indeksów bazodanowych"
     },
     {
       "id": 2,
@@ -82,6 +83,12 @@
       "name": "Sprawozdawczość test1",
       "url": "",
       "description": ""
+    },
+    {
+      "id": 7,
+      "name": "Pomiary check DB",
+      "url": "http://localhost:3000/nagiosServices",
+      "description": "sprawdzenie spójności danych"
     }
   ]
 }

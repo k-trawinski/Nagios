@@ -40,9 +40,24 @@ export class TeamsListComponent implements OnInit {
     this.apiService.updateTeam(team).subscribe(
       data => {
         let idx = this.teams.findIndex(t => t.id == data.id);
-        this.teams[idx] = data;
+        if (idx > -1) {
+          this.teams[idx] = data;
+        }
       }
     );
+  }
+
+  deleteTeam(teamId: number) {
+    
+    this.apiService.deleteTeam(teamId).subscribe(
+      data => {
+        let idx = this.teams.findIndex(t => t.id == teamId);
+        if (idx > -1) {
+            this.teams.splice(idx, 1);
+        }
+      }
+    );
+
   }
 
   onEditComplete(event)

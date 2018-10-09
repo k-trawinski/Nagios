@@ -47,6 +47,19 @@ export class NagiosServicesListComponent implements OnInit {
     );
   }
 
+  deleteNagiosService(nagiosServiceId: number) {
+
+    this.apiService.deleteNagiosService(nagiosServiceId).subscribe(
+      data => {
+        let idx = this.nagiosServices.findIndex(ns => ns.id == nagiosServiceId);
+        if (idx > -1) {
+          this.nagiosServices.splice(idx, 1);
+        }
+      }
+    );
+
+  }
+
   onEditComplete(event)
   {
     //console.log('onEditComplete: ' + JSON.stringify(event));

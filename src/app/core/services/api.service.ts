@@ -34,6 +34,11 @@ export class ApiService {
     return this.http.put<Team>(this.baseUrl + 'teams/' + team.id, team, this.httpOptions);
   }
 
+  deleteTeam(teamId: number): Observable<Team> {
+    //console.log(teamId);
+    return this.http.delete<Team>(this.baseUrl + 'teams/' + teamId, this.httpOptions);
+  }
+
 
   // Nagios services
 
@@ -49,6 +54,11 @@ export class ApiService {
   updateNagiosService(nagiosService: NagiosService): Observable<NagiosService> {
     console.log(nagiosService);
     return this.http.put<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosService.id, nagiosService, this.httpOptions);
+  }
+
+  deleteNagiosService(nagiosServiceId: number): Observable<NagiosService> {
+    console.log(nagiosServiceId);
+    return this.http.delete<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosServiceId, this.httpOptions);
   }
 
 }

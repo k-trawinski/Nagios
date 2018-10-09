@@ -2,6 +2,7 @@
 <!-- <ul *ngFor="let team of teams">
   <li>{{team.name}}</li>
 </ul>   -->
+
 <input #newTeamName type="text" pInputText placeholder="Nazwa zespołu"/> &nbsp;
 <input #newTeamDesc type="text" pInputText placeholder="Opis"/> &nbsp;
 <button type="button" pButton label="Dodaj" (click)="addTeam(newTeamName.value, newTeamDesc.value)"></button> &nbsp; 
@@ -37,6 +38,9 @@
             {{ team.description }}
           </ng-template>
       </p-cellEditor>
+      </td>
+      <td>
+        <button type="button" pButton label="X" (click)="deleteTeam(team.id)"></button>
       </td>
     </tr>
   </ng-template>

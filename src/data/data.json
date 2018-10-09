@@ -31,11 +31,6 @@
       "description": "Sprawozdawczość info"
     },
     {
-      "id": 9,
-      "name": "aaa",
-      "description": "aaa info"
-    },
-    {
       "id": 10,
       "name": "bbb",
       "description": "bbb info"
@@ -89,6 +84,12 @@
       "name": "Pomiary check DB",
       "url": "http://localhost:3000/nagiosServices",
       "description": "sprawdzenie spójności danych"
+    },
+    {
+      "id": 9,
+      "name": "Finanse test2",
+      "url": "bcbcvb",
+      "description": "rtyrty"
     }
   ]
 }

@@ -41,7 +41,6 @@
       "description": "ccc info"
     }
   ],
-
   "nagiosServices": [
     {
       "id": 1,
@@ -91,9 +90,14 @@
       "name": "Finanse test2",
       "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": "rtyrty"
+    },
+    {
+      "id": 10,
+      "name": "aaa",
+      "url": "http://localhost:3000/nagiosServicesResults/7",
+      "description": "Sprawdzenie X"
     }
   ],
-
   "nagiosServicesResults": [
     {
       "id": 1,
@@ -124,7 +128,21 @@
       "id": 6,
       "resultCode": 2,
       "resultMessage": "DB - Error"
+    },
+    {
+      "id": 7,
+      "resultCode": 0,
+      "resultMessage": "WebService - OK"
+    },
+    {
+      "id": 8,
+      "resultCode": 1,
+      "resultMessage": "WebService - Warning"
+    },
+    {
+      "id": 9,
+      "resultCode": 2,
+      "resultMessage": "WebService - Error"
     }
   ]
-
 }

@@ -48,17 +48,17 @@ export class ApiService {
   }
 
   addNagiosService(nagiosService: NagiosService): Observable<NagiosService> {
-    console.log(nagiosService);
+    //console.log(nagiosService);
     return this.http.post<NagiosService>(this.baseUrl + 'nagiosServices', nagiosService, this.httpOptions);
   }
 
   updateNagiosService(nagiosService: NagiosService): Observable<NagiosService> {
-    console.log(nagiosService);
+    //console.log(nagiosService);
     return this.http.put<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosService.id, nagiosService, this.httpOptions);
   }
 
   deleteNagiosService(nagiosServiceId: number): Observable<NagiosService> {
-    console.log(nagiosServiceId);
+    //console.log(nagiosServiceId);
     return this.http.delete<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosServiceId, this.httpOptions);
   }
 
@@ -67,6 +67,11 @@ export class ApiService {
   getNagiosServiceResult(url: string): Observable<NagiosServiceResult> {
     //console.log('url: ' + url);
     return this.http.get<NagiosServiceResult>(url);
+  }
+
+  addNagiosServiceResult(nagiosServiceResult: NagiosServiceResult): Observable<NagiosServiceResult> {
+    //console.log(nagiosServiceResult);
+    return this.http.post<NagiosServiceResult>(this.baseUrl + 'nagiosServicesResults', nagiosServiceResult, this.httpOptions);
   }
 
 }

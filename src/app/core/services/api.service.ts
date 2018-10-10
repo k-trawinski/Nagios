@@ -65,7 +65,7 @@ export class ApiService {
   // Nagios service results
 
   getNagiosServiceResult(url: string): Observable<NagiosServiceResult> {
-    console.log('url: ' + url);
+    //console.log('url: ' + url);
     return this.http.get<NagiosServiceResult>(url);
   }
 

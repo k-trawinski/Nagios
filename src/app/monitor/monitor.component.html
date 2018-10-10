@@ -1,22 +1,25 @@
 <h2>Real-time monitoring</h2>
+<button type="button" pButton label="Odśwież" (click)="hitServices()"></button> &nbsp;
 
-<p-table [value]="MonitorElements">
+<p-table [value]="monitorElements">
   <ng-template pTemplate="header">
     <tr>
-      <th>Id</th>
+      <th width="40px">Id</th>
       <th>Nazwa</th>
       <th>URL</th>
-      <th>Status</th>
+      <th width="75px">Status</th>
       <th>Info</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-elem>
+    <!-- <tr ng-class="{green: elem.resultCode == 0, orange: elem.resultCode == 1, red: elem.resultCode == 2}"> -->
     <tr>
       <td>{{ elem.id }}</td>
-      <td>{{ elem.name }}</td>
-      <td>{{ elem.url }}</td>
-      <td>{{ elem.resultCode }}</td>
-      <td>{{ elem.ResultMessage }}</td>
+      <td>{{ elem.serviceName }}</td>
+      <td>{{ elem.serviceURL }}</td>
+      <!-- <td>{{ elem.resultCode }}</td> -->
+      <td [ngClass]="{green: elem.resultCode == 0, orange: elem.resultCode == 1, red: elem.resultCode == 2}"></td>
+      <td>{{ elem.resultMessage }}</td>
     </tr>
   </ng-template>
 </p-table>

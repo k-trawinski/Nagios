@@ -101,28 +101,28 @@
       "resultMessage": "OK"
     },
     {
-      "id": 1,
+      "id": 2,
       "resultCode": 1,
       "resultMessage": "Warning"
     },
     {
-      "id": 1,
+      "id": 3,
       "resultCode": 2,
       "resultMessage": "Error"
     },
     {
-      "id": 1,
+      "id": 4,
       "resultCode": 0,
       "resultMessage": "DB - OK"
     },
     {
-      "id": 1,
+      "id": 5,
       "resultCode": 1,
       "resultMessage": "DB - Warning"
     },
     {
-      "id": 1,
-      "resultCode": 1,
+      "id": 6,
+      "resultCode": 2,
       "resultMessage": "DB - Error"
     }
   ]

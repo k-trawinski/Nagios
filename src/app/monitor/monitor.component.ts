@@ -14,43 +14,45 @@ export class MonitorComponent implements OnInit {
   nagiosServices: NagiosService[] = [];
   monitorElements: MonitorElement[] = [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getNagiosServices().subscribe(
+    this.apiService.getNagiosServices()
+    .subscribe(
       data => {
-        console.log(data);
         this.nagiosServices = data;
       },
       err => console.log(err),
       () => {
-        //  w interwale co 15 sek.
-        this.hitServices();
+        //this.hitServices();
       }
     );
+
   }
 
   hitServices() {
+    let context = this;
+    context.monitorElements.length = 0;
+
     this.nagiosServices.forEach(function(ns: NagiosService) {
-      console.log(ns);
       let result: NagiosServiceResult = null;
 
-      this.apiService.getNagiosServiceResult(ns.url).subscribe(
-        data => {
-          console.log('results: ' + data);
-          result = data;
-        },
-        err => console.log(err),
-        () => {
-          const elem: MonitorElement = {
-            id: ns.id,
-            serviceName: ns.name,
-            serviceURL: ns.url,
-            resultCode: result.resultCode,
-            resultMessage: result.resultMessage
-          };
-          this.MonitorElements.push(elem);
-        }
+      context.apiService.getNagiosServiceResult(ns.url).subscribe(
+         data => {
+           result = data;
+         },
+         err => console.log(err),
+         () => {
+           const elem: MonitorElement = {
+             id: ns.id,
+             serviceName: ns.name,
+             serviceURL: ns.url,
+             resultCode: result.resultCode,
+             resultMessage: result.resultMessage
+           };
+           context.monitorElements.push(elem);
+         }
+
       );
     });
   }

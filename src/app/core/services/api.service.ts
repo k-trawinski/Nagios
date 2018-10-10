@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Team } from '../../shared/models/team.model';
 import { NagiosService } from '../../shared/models/nagiosService.model';
 import { Observable } from 'rxjs';
+import { NagiosServiceResult } from 'src/app/shared/models/nagiosServiceResult.model';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,13 @@ export class ApiService {
   deleteNagiosService(nagiosServiceId: number): Observable<NagiosService> {
     console.log(nagiosServiceId);
     return this.http.delete<NagiosService>(this.baseUrl + 'nagiosServices/' + nagiosServiceId, this.httpOptions);
+  }
+
+  // Nagios service results
+
+  getNagiosServiceResult(url: string): Observable<NagiosServiceResult> {
+    console.log('url: ' + url);
+    return this.http.get<NagiosServiceResult>(url);
   }
 
 }

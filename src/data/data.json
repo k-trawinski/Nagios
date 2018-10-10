@@ -41,55 +41,90 @@
       "description": "ccc info"
     }
   ],
+
   "nagiosServices": [
     {
       "id": 1,
       "name": "Administracja test DB",
-      "url": "http://localhost:3000/nagiosServices",
+      "url": "http://localhost:3000/nagiosServicesResults/1",
       "description": "analiza indeksów bazodanowych",
       "desription": "test indeksów bazodanowych"
     },
     {
       "id": 2,
       "name": "Fakturowanie test1",
-      "url": "",
+      "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": ""
     },
     {
       "id": 3,
       "name": "Finanse test1",
-      "url": "",
+      "url": "http://localhost:3000/nagiosServicesResults/3",
       "description": ""
     },
     {
       "id": 4,
       "name": "Obsługa techniczna test1",
-      "url": "",
+      "url": "http://localhost:3000/nagiosServicesResults/4",
       "description": ""
     },
     {
       "id": 5,
       "name": "Rozliczenia test1",
-      "url": "",
+      "url": "http://localhost:3000/nagiosServicesResults/5",
       "description": ""
     },
     {
       "id": 6,
       "name": "Sprawozdawczość test1",
-      "url": "",
+      "url": "http://localhost:3000/nagiosServicesResults/6",
       "description": ""
     },
     {
       "id": 7,
       "name": "Pomiary check DB",
-      "url": "http://localhost:3000/nagiosServices",
+      "url": "http://localhost:3000/nagiosServicesResults/1",
       "description": "sprawdzenie spójności danych"
     },
     {
       "id": 9,
       "name": "Finanse test2",
-      "url": "bcbcvb",
+      "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": "rtyrty"
     }
+  ],
+
+  "nagiosServicesResults": [
+    {
+      "id": 1,
+      "resultCode": 0,
+      "resultMessage": "OK"
+    },
+    {
+      "id": 1,
+      "resultCode": 1,
+      "resultMessage": "Warning"
+    },
+    {
+      "id": 1,
+      "resultCode": 2,
+      "resultMessage": "Error"
+    },
+    {
+      "id": 1,
+      "resultCode": 0,
+      "resultMessage": "DB - OK"
+    },
+    {
+      "id": 1,
+      "resultCode": 1,
+      "resultMessage": "DB - Warning"
+    },
+    {
+      "id": 1,
+      "resultCode": 1,
+      "resultMessage": "DB - Error"
+    }
   ]
+
 }

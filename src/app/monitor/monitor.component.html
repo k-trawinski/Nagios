@@ -1,3 +1,22 @@
-<p>
-  monitor works!
-</p>
+<h2>Real-time monitoring</h2>
+
+<p-table [value]="MonitorElements">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>URL</th>
+      <th>Status</th>
+      <th>Info</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-elem>
+    <tr>
+      <td>{{ elem.id }}</td>
+      <td>{{ elem.name }}</td>
+      <td>{{ elem.url }}</td>
+      <td>{{ elem.resultCode }}</td>
+      <td>{{ elem.ResultMessage }}</td>
+    </tr>
+  </ng-template>
+</p-table>

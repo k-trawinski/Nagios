@@ -4,15 +4,18 @@
 </ul> -->
 
 <input #newNagiosServiceName type="text" pInputText placeholder="Nazwa serwisu"/> &nbsp;
+<!-- <input #newNagiosServiceTeamId type="text" pInputText placeholder="Numer zespołu"/> &nbsp; -->
+<p-dropdown width="120px" [options]="teams" [(ngModel)]="newSelectedTeam" optionLabel="name" required></p-dropdown>&nbsp;
 <input #newNagiosServiceURL type="text" pInputText placeholder="URL serwisu"/> &nbsp;
 <input #newNagiosServiceDesc type="text" pInputText placeholder="Opis"/> &nbsp;
-<button type="button" pButton label="Dodaj" (click)="addNagiosService(newNagiosServiceName.value, newNagiosServiceURL.value, newNagiosServiceDesc.value)"></button> &nbsp;
+<button type="button" pButton label="Dodaj" (click)="addNagiosService(newNagiosServiceName.value, newSelectedTeam.id, newNagiosServiceURL.value, newNagiosServiceDesc.value)"></button> &nbsp;
 <br><br>
 <p-table [value]="nagiosServices" (onEditComplete)="onEditComplete($event)">
   <ng-template pTemplate="header">
     <tr>
       <th width="40px">Id</th>
       <th>Nazwa</th>
+      <th>Zespół</th>
       <th>URL</th>
       <th>Opis</th>
       <th width="75px"></th>
@@ -30,7 +33,18 @@
           </ng-template>
         </p-cellEditor>
       </td>
-     <td [pEditableColumn]="nagiosService" [pEditableColumnField]="'url'" >
+      <td [pEditableColumn]="nagiosService" [pEditableColumnField]="'teamId'" >
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <!-- <input type="text" [(ngModel)]="nagiosService.teamId" required> -->
+            <p-dropdown [options]="teams" [(ngModel)]="selectedTeam" optionLabel="name" required (onChange)="onComboChange(nagiosService.id)"></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{ this.TeamId2Name(nagiosService.teamId) }}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      <td [pEditableColumn]="nagiosService" [pEditableColumnField]="'url'" >
         <p-cellEditor>
           <ng-template pTemplate="input">
             <input type="text" [(ngModel)]="nagiosService.url" required>

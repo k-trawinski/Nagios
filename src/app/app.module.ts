@@ -14,6 +14,8 @@ import { MonitorComponent } from './monitor/monitor.component';
 // import {ButtonModule} from 'primeng/button';
 import { MenubarModule, ButtonModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { ApiService } from './core/services/api.service';
 
@@ -32,6 +34,8 @@ import { ApiService } from './core/services/api.service';
     MenubarModule,
     ButtonModule,
     TableModule,
+    InputTextModule,
+    DropdownModule,
     HttpClientModule
   ],
   providers: [ApiService],

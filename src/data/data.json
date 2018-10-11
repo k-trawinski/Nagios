@@ -44,6 +44,7 @@
   "nagiosServices": [
     {
       "id": 1,
+      "teamId": 1,
       "name": "Administracja test DB",
       "url": "http://localhost:3000/nagiosServicesResults/1",
       "description": "analiza indeksów bazodanowych",
@@ -51,48 +52,56 @@
     },
     {
       "id": 2,
+      "teamId": 2,
       "name": "Fakturowanie test1",
       "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": ""
     },
     {
       "id": 3,
+      "teamId": 3,      
       "name": "Finanse test1",
       "url": "http://localhost:3000/nagiosServicesResults/3",
       "description": ""
     },
     {
       "id": 4,
+      "teamId": 4,      
       "name": "Obsługa techniczna test1",
       "url": "http://localhost:3000/nagiosServicesResults/4",
       "description": ""
     },
     {
       "id": 5,
+      "teamId": 5,      
       "name": "Rozliczenia test1",
       "url": "http://localhost:3000/nagiosServicesResults/5",
       "description": ""
     },
     {
       "id": 6,
+      "teamId": 6,      
       "name": "Sprawozdawczość test1",
       "url": "http://localhost:3000/nagiosServicesResults/6",
       "description": ""
     },
     {
       "id": 7,
+      "teamId": 1,      
       "name": "Pomiary check DB",
       "url": "http://localhost:3000/nagiosServicesResults/1",
       "description": "sprawdzenie spójności danych"
     },
     {
       "id": 9,
+      "teamId": 2,      
       "name": "Finanse test2",
       "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": "rtyrty"
     },
     {
       "id": 10,
+      "teamId": 3,      
       "name": "aaa",
       "url": "http://localhost:3000/nagiosServicesResults/7",
       "description": "Sprawdzenie X"

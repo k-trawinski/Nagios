@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/services/api.service';
 import { NagiosService } from '../shared/models/nagiosService.model';
-
-import { InputTextModule } from 'primeng/inputtext';
+import { Team } from '../shared/models/team.model';
 
 @Component({
   selector: 'app-services-list',
@@ -11,30 +10,41 @@ import { InputTextModule } from 'primeng/inputtext';
 })
 export class NagiosServicesListComponent implements OnInit {
 
-  public nagiosServices = [];
+  public nagiosServices: NagiosService[] = [];
+  public teams: Team[] = [];
+  public selectedTeam: Team;
+  public newSelectedTeam: Team;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getNagiosServices().subscribe(
-      data => this.nagiosServices = data
+    this.apiService.getTeams().subscribe(
+      (data) => this.teams = data,
+      (err) => console.log(err),
+      () => {
+        this.apiService.getNagiosServices().subscribe(
+          (data) => this.nagiosServices = data
+        );
+      }
     );
   }
 
-  addNagiosService(serviceName: string, serviceURL: string, serviceDesc: string) {
+  addNagiosService(serviceName: string, teamId: number, serviceURL: string, serviceDesc: string) {
 
-    const maxId = Math.max.apply(Math, this.nagiosServices.map(function(ns) { return ns.Id; }));
+    const maxId = Math.max.apply(Math, this.nagiosServices.map(function(ns) { return ns.id; }));
 
     const nagiosService: NagiosService = {
       id: maxId  +1,
+      teamId: teamId,
       name: serviceName,
       url: serviceURL,
       description: serviceDesc
     };
 
-    this.apiService.addNagiosService(nagiosService).subscribe(
-      data => this.nagiosServices.push(data)
-    );
+    console.log(nagiosService);
+    // this.apiService.addNagiosService(nagiosService).subscribe(
+    //   data => this.nagiosServices.push(data)
+    // );
   }
 
   updateNagiosService(nagiosService: NagiosService) {
@@ -64,6 +74,18 @@ export class NagiosServicesListComponent implements OnInit {
   {
     //console.log('onEditComplete: ' + JSON.stringify(event));
     this.updateNagiosService(event.data);
+  }
+
+  onComboChange(id: number)
+  {
+    console.log('row ID: ' + id);
+    console.log('team ID: ' + this.selectedTeam.id);
+  }
+
+  TeamId2Name(id: number): string
+  {
+    const t: Team = this.teams.find(t => t.id == id);
+    return t.name;
   }
 
 }

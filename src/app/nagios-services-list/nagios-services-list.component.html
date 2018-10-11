@@ -1,4 +1,4 @@
-<h2>Services</h2>
+<h2>Serwisy</h2>
 <!-- <ul *ngFor="let nagiosService of nagiosServices">
   <li>{{nagiosService.name}}</li>
 </ul> -->
@@ -11,10 +11,11 @@
 <p-table [value]="nagiosServices" (onEditComplete)="onEditComplete($event)">
   <ng-template pTemplate="header">
     <tr>
-      <th>Id</th>
+      <th width="40px">Id</th>
       <th>Nazwa</th>
       <th>URL</th>
       <th>Opis</th>
+      <th width="75px"></th>
   </ng-template>
   <ng-template pTemplate="body" let-nagiosService>
     <tr>

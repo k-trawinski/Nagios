@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/services/api.service';
 import { Team } from '../shared/models/team.model';
 
-import {InputTextModule} from 'primeng/inputtext';
+import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-teams-list',
@@ -11,7 +12,8 @@ import {InputTextModule} from 'primeng/inputtext';
 })
 export class TeamsListComponent implements OnInit {
 
-  teams: Team[] = [];
+  public teams: Team[] = [];
+  public display: boolean = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -39,7 +41,7 @@ export class TeamsListComponent implements OnInit {
 
     this.apiService.updateTeam(team).subscribe(
       data => {
-        let idx = this.teams.findIndex(t => t.id == data.id);
+        const idx: number = this.teams.findIndex(t => t.id === data.id);
         if (idx > -1) {
           this.teams[idx] = data;
         }
@@ -48,10 +50,9 @@ export class TeamsListComponent implements OnInit {
   }
 
   deleteTeam(teamId: number) {
-    
     this.apiService.deleteTeam(teamId).subscribe(
       data => {
-        let idx = this.teams.findIndex(t => t.id == teamId);
+        const idx: number = this.teams.findIndex(t => t.id === teamId);
         if (idx > -1) {
             this.teams.splice(idx, 1);
         }
@@ -60,9 +61,12 @@ export class TeamsListComponent implements OnInit {
 
   }
 
-  onEditComplete(event)
-  {
-    //console.log('onEditcomplete: ' + JSON.stringify(event));
+  onEditComplete(event) {
+    // console.log('onEditcomplete: ' + JSON.stringify(event));
     this.updateTeam(event.data);
+  }
+
+  showDialog() {
+    this.display = true;
   }
 }

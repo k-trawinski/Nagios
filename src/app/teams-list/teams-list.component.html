@@ -1,4 +1,4 @@
-<h2>Teams</h2>
+<h2>Zespoły</h2>
 <!-- <ul *ngFor="let team of teams">
   <li>{{team.name}}</li>
 </ul>   -->
@@ -7,12 +7,14 @@
 <input #newTeamDesc type="text" pInputText placeholder="Opis"/> &nbsp;
 <button type="button" pButton label="Dodaj" (click)="addTeam(newTeamName.value, newTeamDesc.value)"></button> &nbsp; 
 <br><br>
+
 <p-table [value]="teams" (onEditComplete)="onEditComplete($event)">
   <ng-template pTemplate="header">
     <tr>
-      <th>Id</th>
+      <th width="40px">Id</th>
       <th>Nazwa</th>
       <th>Opis</th>
+      <th width="75px"></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-team>
@@ -44,7 +46,9 @@
       </td>
     </tr>
   </ng-template>
-
-  
 </p-table>
+
+<p-dialog header="Potwierdzenie" [(visible)]="display">
+  Content
+</p-dialog>
 

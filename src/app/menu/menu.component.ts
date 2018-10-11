@@ -14,13 +14,13 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Home' , routerLink: ['/']},
-      { label: 'Monitor', routerLink: ['/monitor'] },
+      { label: 'Start' , routerLink: ['/']},
+      { label: 'Monitoring', routerLink: ['/monitor'] },
       {
-        label: 'Configuration',
+        label: 'Konfiguracja',
         items: [
-          { label: 'Teams', routerLink: ['/teams'] },
-          { label: 'Services', routerLink: ['/services'] }
+          { label: 'Zespoły', routerLink: ['/teams'] },
+          { label: 'Serwisy', routerLink: ['/services'] }
         ]
       }
     ];

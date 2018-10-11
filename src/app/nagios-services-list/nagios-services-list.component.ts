@@ -41,10 +41,10 @@ export class NagiosServicesListComponent implements OnInit {
       description: serviceDesc
     };
 
-    console.log(nagiosService);
-    // this.apiService.addNagiosService(nagiosService).subscribe(
-    //   data => this.nagiosServices.push(data)
-    // );
+    //console.log(nagiosService);
+    this.apiService.addNagiosService(nagiosService).subscribe(
+      data => this.nagiosServices.push(data)
+    );
   }
 
   updateNagiosService(nagiosService: NagiosService) {
@@ -52,7 +52,8 @@ export class NagiosServicesListComponent implements OnInit {
     this.apiService.updateNagiosService(nagiosService).subscribe(
       data => {
         let idx = this.nagiosServices.findIndex(ns => ns.id == data.id);
-        this.nagiosServices[idx] = data;
+        if (idx > -1)
+          this.nagiosServices[idx] = data;
       }
     );
   }
@@ -78,8 +79,20 @@ export class NagiosServicesListComponent implements OnInit {
 
   onComboChange(id: number)
   {
-    console.log('row ID: ' + id);
-    console.log('team ID: ' + this.selectedTeam.id);
+    // console.log('row ID: ' + id);
+    // console.log('team ID: ' + this.selectedTeam.id);
+    let idx = this.nagiosServices.findIndex(ns => ns.id == id);
+    if (idx > -1) {
+      let ns: NagiosService = this.nagiosServices[idx];
+      ns.teamId = this.selectedTeam.id;
+      this.apiService.updateNagiosService(ns).subscribe(
+        data => {
+          let idx = this.nagiosServices.findIndex(ns => ns.id == data.id);
+          if (idx > -1)
+            this.nagiosServices[idx] = data;
+        }
+      );
+    }
   }
 
   TeamId2Name(id: number): string

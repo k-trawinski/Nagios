@@ -6,7 +6,7 @@
 <input #newNagiosServiceName type="text" pInputText placeholder="Nazwa serwisu"/> &nbsp;
 <!-- <input #newNagiosServiceTeamId type="text" pInputText placeholder="Numer zespołu"/> &nbsp; -->
 <p-dropdown [style]="{width:'200px'}" [options]="teams" [(ngModel)]="newSelectedTeam" optionLabel="name" required></p-dropdown>&nbsp;
-<input [style]="{width:'200px'}" #newNagiosServiceURL type="text" pInputText placeholder="URL serwisu"/> &nbsp;
+<input #newNagiosServiceURL type="text" pInputText placeholder="URL serwisu"/> &nbsp;
 <input #newNagiosServiceDesc type="text" pInputText placeholder="Opis"/> &nbsp;
 <button type="button" pButton label="Dodaj" (click)="addNagiosService(newNagiosServiceName.value, newSelectedTeam.id, newNagiosServiceURL.value, newNagiosServiceDesc.value)"></button> &nbsp;
 <br><br>

@@ -3,6 +3,7 @@ import { ApiService } from '../core/services/api.service';
 import { NagiosService } from '../shared/models/nagiosService.model';
 import { MonitorElement} from '../shared/models/monitorElement.model';
 import { NagiosServiceResult } from '../shared/models/nagiosServiceResult.model';
+import { Team } from '../shared/models/team.model';
 import { interval } from 'rxjs';
 
 @Component({
@@ -14,26 +15,30 @@ export class MonitorComponent implements OnInit {
 
   public nagiosServices: NagiosService[] = [];
   public monitorElements: MonitorElement[] = [];
+  public teams: Team[] = [];
+  public selectedTeam: Team;
   public hitCount: number = 0;
 
   constructor(public apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getNagiosServices()
-    .subscribe(
-      data => {
-        this.nagiosServices = data;
-      },
-      err => console.log(err),
+    this.apiService.getTeams().subscribe(
+      (data) => this.teams = data,
+      (err) => console.log(err),
       () => {
-        const source = interval(5000);
-        const subscribe = source.subscribe(val => {
-          this.hitCount++;
-          this.hitServices()
-        });
+        this.apiService.getNagiosServices().subscribe(
+          (data) => this.nagiosServices = data,
+          (err) => console.log(err),
+          () => {
+            const source = interval(5000);
+            const subscribe = source.subscribe(val => {
+              this.hitCount++;
+              this.hitServices()
+            });
+          }
+        )
       }
-    );
-
+    )
   }
 
   hitServices() {
@@ -51,6 +56,7 @@ export class MonitorComponent implements OnInit {
         () => {
          const elem: MonitorElement = {
             id: ns.id,
+            teamId: ns.teamId,
             serviceName: ns.name,
             serviceURL: ns.url,
             resultCode: result.resultCode,
@@ -66,6 +72,16 @@ export class MonitorComponent implements OnInit {
 
       );
     });
+  }
+
+  onComboChange() {
+    console.log(this.selectedTeam);
+  }
+
+  TeamId2Name(id: number): string
+  {
+    const t: Team = this.teams.find(t => t.id == id);
+    return t.name;
   }
 
 }

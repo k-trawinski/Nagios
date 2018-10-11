@@ -1,11 +1,13 @@
-<h2>Monitorowanie 24h &nbsp; <span class="step">{{ hitCount }}</span></h2>
+<h2>Monitoring 24h &nbsp; <span class="step">{{ hitCount }}</span></h2>
 <!-- <button type="button" pButton label="Odśwież" (click)="hitServices()"></button> &nbsp; -->
+<p><p-dropdown [style]="{width:'200px'}" [options]="teams" [(ngModel)]="selectedTeam" optionLabel="name" placeholder="Wybierz zespół" [showClear]="true" (onChange)="tt.filter($event.value && $event.value.id || null,'teamId','equals')"></p-dropdown></p>
 
-<p-table [value]="monitorElements">
+<p-table #tt [value]="monitorElements">
   <ng-template pTemplate="header">
     <tr>
       <th width="40px">Id</th>
       <th>Nazwa</th>
+      <th>Zespół</th>
       <th>URL</th>
       <th width="75px">Status</th>
       <th>Info</th>
@@ -16,6 +18,7 @@
     <tr>
       <td>{{ elem.id }}</td>
       <td>{{ elem.serviceName }}</td>
+      <td>{{ this.TeamId2Name(elem.teamId) }}</td>
       <td>{{ elem.serviceURL }}</td>
       <!-- <td>{{ elem.resultCode }}</td> -->
       <td [ngClass]="{green: elem.resultCode == 0, orange: elem.resultCode == 1, red: elem.resultCode == 2}"></td>

@@ -57,7 +57,7 @@
     },
     {
       "id": 2,
-      "teamId": 2,
+      "teamId": 5,
       "name": "Fakturowanie test1",
       "url": "http://localhost:3000/nagiosServicesResults/2",
       "description": ""

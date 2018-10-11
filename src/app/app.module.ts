@@ -11,20 +11,24 @@ import { MonitorComponent } from './monitor/monitor.component';
 
 // primeng
 // import { MenubarModule } from 'primeng/menubar';
-// import {ButtonModule} from 'primeng/button';
-import { MenubarModule, ButtonModule } from 'primeng/primeng';
+// import { ButtonModule } from 'primeng/button';
+// import { InputTextModule } from 'primeng/inputtext';
+// import { DropdownModule } from 'primeng/dropdown';
+// import { CardModule } from 'primeng/card';
+import { MenubarModule, ButtonModule, CardModule, InputTextModule, DropdownModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
-import { InputTextModule } from 'primeng/inputtext';
-import { DropdownModule } from 'primeng/dropdown';
+
 
 import { ApiService } from './core/services/api.service';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     routingComponents,
-    MonitorComponent
+    MonitorComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,7 @@ import { ApiService } from './core/services/api.service';
     TableModule,
     InputTextModule,
     DropdownModule,
+    CardModule,
     HttpClientModule
   ],
   providers: [ApiService],

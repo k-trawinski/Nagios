@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { TeamsListComponent } from './teams-list/teams-list.component';
 import { NagiosServicesListComponent } from './nagios-services-list/nagios-services-list.component';
 import { MonitorComponent } from './monitor/monitor.component';
+import { LogoComponent } from './logo/logo.component';
 
 const routes: Routes = [
+    { path: '', component: LogoComponent},
     { path: 'teams', component: TeamsListComponent },
     { path: 'services', component: NagiosServicesListComponent },
     { path: 'monitor', component: MonitorComponent }

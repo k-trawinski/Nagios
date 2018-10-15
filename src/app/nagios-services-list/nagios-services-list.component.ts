@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/services/api.service';
 import { NagiosService } from '../shared/models/nagiosService.model';
 import { Team } from '../shared/models/team.model';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-services-list',
   templateUrl: './nagios-services-list.component.html',
-  styleUrls: ['./nagios-services-list.component.css']
+  styleUrls: ['./nagios-services-list.component.css'],
+  providers:[ConfirmationService]
 })
 export class NagiosServicesListComponent implements OnInit {
 
@@ -15,7 +17,10 @@ export class NagiosServicesListComponent implements OnInit {
   public selectedTeam: Team;
   public newSelectedTeam: Team;
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit() {
     this.apiService.getTeams().subscribe(
@@ -99,6 +104,16 @@ export class NagiosServicesListComponent implements OnInit {
   {
     const t: Team = this.teams.find(t => t.id == id);
     return t.name;
+  }
+
+  confirmDelete(nagiosServiceId: number) {
+    this.confirmationService.confirm({
+      message: 'Czy chcesz usunąć wybrany serwis?',
+      header: 'Potwierdzenie usunięcia',
+      icon: 'pi pi-info-circle',
+      accept: () => this.deleteNagiosService(nagiosServiceId)
+      //reject: () => {}
+    });
   }
 
 }

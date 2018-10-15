@@ -71,7 +71,7 @@ export class TeamsListComponent implements OnInit {
   confirmDelete(temaId: number) {
     this.confirmationService.confirm({
       message: 'Czy chcesz usunąć wybrany zespoł?',
-      header: 'Potwierdzenie usuwania',
+      header: 'Potwierdzenie usunięcia',
       icon: 'pi pi-info-circle',
       accept: () => this.deleteTeam(temaId)
       //reject: () => {}

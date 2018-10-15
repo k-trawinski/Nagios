@@ -4,7 +4,6 @@
 </ul> -->
 
 <input #newNagiosServiceName type="text" pInputText placeholder="Nazwa serwisu"/> &nbsp;
-<!-- <input #newNagiosServiceTeamId type="text" pInputText placeholder="Numer zespołu"/> &nbsp; -->
 <p-dropdown [style]="{width:'200px'}" [options]="teams" [(ngModel)]="newSelectedTeam" optionLabel="name" required></p-dropdown>&nbsp;
 <input #newNagiosServiceURL type="text" pInputText placeholder="URL serwisu"/> &nbsp;
 <input #newNagiosServiceDesc type="text" pInputText placeholder="Opis"/> &nbsp;
@@ -36,7 +35,6 @@
       <td [pEditableColumn]="nagiosService" [pEditableColumnField]="'teamId'" >
         <p-cellEditor>
           <ng-template pTemplate="input">
-            <!-- <input type="text" [(ngModel)]="nagiosService.teamId" required> -->
             <p-dropdown [options]="teams" [(ngModel)]="selectedTeam" optionLabel="name" required (onChange)="onComboChange(nagiosService.id)"></p-dropdown>
           </ng-template>
           <ng-template pTemplate="output">
@@ -65,8 +63,10 @@
         </p-cellEditor>
       </td>
       <td>
-        <button type="button" pButton label="X" (click)="deleteNagiosService(nagiosService.id)"></button>
+        <button type="button" pButton label="X" (click)="confirmDelete(nagiosService.id)"></button>
       </td>
     </tr>
   </ng-template>
 </p-table>
+
+<p-confirmDialog></p-confirmDialog>

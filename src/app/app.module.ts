@@ -15,7 +15,7 @@ import { MonitorComponent } from './monitor/monitor.component';
 // import { InputTextModule } from 'primeng/inputtext';
 // import { DropdownModule } from 'primeng/dropdown';
 // import { CardModule } from 'primeng/card';
-import { MenubarModule, ButtonModule, CardModule, InputTextModule, DropdownModule } from 'primeng/primeng';
+import { MenubarModule, ButtonModule, CardModule, InputTextModule, DropdownModule, ConfirmDialogModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 
 
@@ -40,6 +40,7 @@ import { LogoComponent } from './logo/logo.component';
     TableModule,
     InputTextModule,
     DropdownModule,
+    ConfirmDialogModule,
     CardModule,
     HttpClientModule
   ],

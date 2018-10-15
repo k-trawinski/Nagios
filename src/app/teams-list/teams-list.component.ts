@@ -2,20 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/services/api.service';
 import { Team } from '../shared/models/team.model';
 
-import { InputTextModule } from 'primeng/inputtext';
-import { DialogModule } from 'primeng/dialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-teams-list',
   templateUrl: './teams-list.component.html',
-  styleUrls: ['./teams-list.component.css']
+  styleUrls: ['./teams-list.component.css'],
+  providers: [ConfirmationService]
 })
 export class TeamsListComponent implements OnInit {
 
   public teams: Team[] = [];
-  public display: boolean = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService, 
+    private confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit() {
     this.apiService.getTeams().subscribe(
@@ -66,7 +68,13 @@ export class TeamsListComponent implements OnInit {
     this.updateTeam(event.data);
   }
 
-  showDialog() {
-    this.display = true;
+  confirmDelete(temaId: number) {
+    this.confirmationService.confirm({
+      message: 'Czy chcesz usunąć wybrany zespoł?',
+      header: 'Potwierdzenie usuwania',
+      icon: 'pi pi-info-circle',
+      accept: () => this.deleteTeam(temaId)
+      //reject: () => {}
+    });
   }
 }
